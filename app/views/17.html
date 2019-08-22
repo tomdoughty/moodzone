@@ -1,0 +1,73 @@
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Content page example - NHS.UK prototype kit
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+	{{ backLink({
+		"text": "Go back",
+		"href": "javascript:history.back()"
+	})}}
+	{{ checkboxes({
+		"idPrefix": "nationality",
+		"name": "nationality",
+		"fieldset": {
+			"legend": {
+				"text": "Have you been bothered by worrying about any of the following?",
+				"classes": "nhsuk-fieldset__legend--l",
+				"isPageHeading": true
+			}
+		},
+		"items": [
+			{
+				"value": "1",
+				"text": "Your health"
+			},
+			{
+				"value": "1",
+				"text": "Your weight or how you look"
+			},
+			{
+				"value": "1",
+				"text": "Little or no sexual desire or pleasure during sex"
+			},
+			{
+				"value": "1",
+				"text": "Difficulties with your partner"
+			},
+			{
+				"value": "1",
+				"text": "The stress of taking care of family members"
+			},
+			{
+				"value": "1",
+				"text": "Stress at work, school or outside home"
+			},
+			{
+				"value": "1",
+				"text": "By financial problems or worries"
+			},
+			{
+				"value": "1",
+				"text": "Having no one to turn to"
+			},
+			{
+				"value": "1",
+				"text": "Something bad that happened recently"
+			},
+			{
+				"value": "1",
+				"text": "None of the above"
+			}
+		]
+	})}}
+	{{ button({
+		"text": "Continue",
+		"href": "/18"
+	}) }}
+{% endblock %}

@@ -93,7 +93,9 @@
       {% block main %}
         <div class="nhsuk-width-container {{ containerClasses }}">
           <main class="nhsuk-main-wrapper {{ mainClasses }}" id="maincontent" role="main">
-            {% block content %}{% endblock %}
+		        <div class="nhsuk-reading-width">
+              {% block content %}{% endblock %}
+            </div>
           </main>
         </div>
       {% endblock %}

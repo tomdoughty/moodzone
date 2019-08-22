@@ -1,0 +1,32 @@
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Content page example - NHS.UK prototype kit
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+	{{ backLink({
+		"text": "Go back",
+		"href": "javascript:history.back()"
+	})}}
+	<h1>Useful links</h1>
+	<ul>
+		<li><a href="http://www.nhs.uk/Conditions/online-mental-health-services/Pages/introduction.aspx" target="top">Online mental health services</a></li>
+		<li><a href="https://www.nhs.uk/conditions/stress-anxiety-depression/coping-with-financial-worries/" target="top">Coping with financial worries</a></li>
+		<li><a href="http://www.nhs.uk/conditions/Anxiety/Pages/Introduction.aspx" target="top">About anxiety and anxiety attacks</a></li>
+		<li><a href="https://www.nhs.uk/conditions/generalised-anxiety-disorder/" target="top">About low mood and depression</a></li>
+		<li><a href="https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/" target="top">How to get to sleep</a></li>
+		<li><a href="https://www.nhs.uk/conditions/stress-anxiety-depression/understanding-panic/" target="top">Why do I feel anxious and panicky?</a></li>
+		<li><a href="https://www.nhs.uk/conditions/stress-anxiety-depression/ways-relieve-stress/" target="top">Relaxation tips to relieve stress</a></li>
+		<li><a href="http://www.anxietyuk.org.uk/" target="top">Anxiety UK</a></li>
+		<li><a href="http://www.llttf.com/" target="top">Living Life To The Full website</a></li>
+		<li><a href="http://www.mind.org.uk/" target="top">Mind - National Mental Health Charity</a></li>
+		<li><a href="http://www.bemindful.co.uk/" target="top">Be Mindful</a></li>
+		<li><a href="http://www.rethink.org/" target="top">Money and your mental health</a></li>
+		<li><a href="http://www.samaritans.org/" target="top">Samaritans</a></li>
+	</ul>
+{% endblock %}

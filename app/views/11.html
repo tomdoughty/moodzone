@@ -1,0 +1,49 @@
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Content page example - NHS.UK prototype kit
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+	{{ backLink({
+		"text": "Go back",
+		"href": "javascript:history.back()"
+	})}}
+	{{ radios({
+	"idPrefix": "example",
+	"name": "example",
+	"fieldset": {
+		"legend": {
+		"text": "How often have you been bothered by not being able to stop or control worrying?",
+		"classes": "nhsuk-fieldset__legend--l",
+		"isPageHeading": true
+		}
+	},
+	"items": [
+		{
+		"value": "1",
+		"text": "Not at all"
+		},
+		{
+		"value": "2",
+		"text": "Several days"
+		},
+		{
+		"value": "3",
+		"text": "More than half the days"
+		},
+		{
+		"value": "4",
+		"text": "Nearly every day"
+		}
+	]
+	}) }}
+	{{ button({
+		"text": "Continue",
+		"href": "/12"
+	}) }}
+{% endblock %}

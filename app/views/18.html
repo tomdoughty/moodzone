@@ -1,0 +1,49 @@
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Content page example - NHS.UK prototype kit
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+	{{ backLink({
+		"text": "Go back",
+		"href": "javascript:history.back()"
+	})}}
+	{{ radios({
+	"idPrefix": "example",
+	"name": "example",
+	"fieldset": {
+		"legend": {
+		"text": "If this questionnaire has highlighted any problems, how difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?",
+		"classes": "nhsuk-fieldset__legend--l",
+		"isPageHeading": true
+		}
+	},
+	"items": [
+		{
+		"value": "1",
+		"text": "Not difficult at all"
+		},
+		{
+		"value": "2",
+		"text": "Somewhat difficult"
+		},
+		{
+		"value": "3",
+		"text": "Very difficult"
+		},
+		{
+		"value": "4",
+		"text": "Extremely difficult"
+		}
+	]
+	}) }}
+	{{ button({
+		"text": "Continue",
+		"href": "/results"
+	}) }}
+{% endblock %}

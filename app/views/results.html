@@ -1,0 +1,27 @@
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- Set the page title inside the pageTitle block -->
+{% block pageTitle %}
+  Content page example - NHS.UK prototype kit
+{% endblock %}
+
+<!-- Your page content goes inside the content block -->
+<!-- More info and code for the page layout can be found at https://beta.nhs.uk/service-manual/styles-components-patterns/layout -->
+{% block content %}
+	{{ backLink({
+		"text": "Go back",
+		"href": "javascript:history.back()"
+	})}}
+	<h1>Your results</h1>
+	<h2>Depression score 24</h2>
+	<p>Based on your responses to questions 1-8, you are experiencing many symptoms seen in depression but only an experienced health professional can tell for sure.</p>
+	<p>You should make an appointment to see your GP over the next few days to a week or call NHS 111. They can help you and offer some form of treatment.</p>
+	<h2>Anxiety score 21</h2>
+	<p>Anxiety or panic attacks aren't harmful but they can be frightening. See useful links for more information that may help.</p>
+	<p>Your day-to-day life is being made extremely difficult. Make an appointment to see your GP and take a printout of these results with you. This will help to start a discussion and may be a first positive step towards tackling your problems. Explore the useful links section for more information that may help.</p>
+	{{ button({
+		"text": "Continue",
+		"href": "/links"
+	}) }}
+{% endblock %}
