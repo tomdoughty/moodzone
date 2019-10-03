@@ -10,13 +10,13 @@ if (cookieStore === "true") {
   bannerContainer.style.display = 'none';
 } else {
   sessionStorage.setItem('cookie-consent', "false");
-  buttons.forEach(function (button) {
-    button.addEventListener('click', function (event) {
+  for (i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function (event) {
       event.preventDefault();
       sessionStorage.setItem("cookie-consent", "true");
       banner.style.display = 'none';
       confirmedBanner.style.display = 'block';
     });
-  });
+  };
 }
 </script>
