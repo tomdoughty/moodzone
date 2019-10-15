@@ -1,6 +1,9 @@
 <!-- Extends the layout from /views/layout.html -->
 {% extends 'layout.html' %}
 
+{% from 'details/macro.njk' import details %}
+{% from 'do-dont-list/macro.njk' import list %}
+
 <!-- Set the page title inside the pageTitle block -->
 {% block pageTitle %}
   Content page example - NHS.UK prototype kit
@@ -15,27 +18,33 @@
 	})}}
 	<h1>Your results</h1>
 	<section>
-		<h2 class="depression-header">Your depression score is <span></span></h2>
-		<p class='depression-content'></p>
-		<h2 class="anxiety-header">Your anxiety score is <span></span></h2>
-		<p class='anxiety-content'></p>
-		<details class="nhsuk-details">
-			<summary class="nhsuk-details__summary">
-				<span class="nhsuk-details__summary-text">
-					How is my result calculated?
-				</span>
-			</summary>
-			<div class="nhsuk-details__text">
-				<p>Your result is based on the answers you've provided to indicate how often you experience symptoms of depression or anxiety.</p>
-				<p>The results are calculated using the following scores: </p>
-				<ul>
-					<li>Not at all - 0</li>
-					<li>Several days - 1</li>
-					<li>More than half the days - 2</li>
-					<li>Nearly every day - 3</li>
-				</ul>
-			</div>
-		</details>
+		<h2 class="depression-header">Depression score: <span></span></h2>
+		{{ details({
+		"classes": "nhsuk-expander depression-content",
+		"text": "What your depression score means",
+		"HTML": "<div></div>"
+		}) }}
+
+		<h2 class="anxiety-header">Anxiety score: <span></span></h2>
+		{{ details({
+		"classes": "nhsuk-expander anxiety-content",
+		"text": "What your anxiety score means",
+		"HTML": "<div></div>"
+		}) }}
+
+		{{ details({
+		"text": "How is my result calculated?",
+		"HTML": "
+			<p>Your result is based on the answers you've provided to indicate how often you experience symptoms of depression or anxiety.</p>
+			<p>The results are calculated using the following scores: </p>
+			<ul>
+				<li>Not at all - 0</li>
+				<li>Several days - 1</li>
+				<li>More than half the days - 2</li>
+				<li>Nearly every day - 3</li>
+			</ul>
+		"
+		}) }}
 	</section>
 	<section>
 		<div class="js-links"></div>
@@ -43,28 +52,56 @@
 	<section>	
 		<div class="js-care-card"></div>
 		<h2>Things you can try to help with a low mood or anxiety</h2>
-		<div class="nhsuk-do-dont-list app-check">
-			<h3 class="nhsuk-do-dont-list__label">Do</h3>
-			<ul class="list--check">
-				<li>try <a href="https://www.nhs.uk/conditions/stress-anxiety-depression/feel-better-and-happy/">6 ways to feel happier</a> – including small lifestyle changes that may help you feel more in control and able to cope</li>
-				<li>read about <a href="https://www.nhs.uk/conditions/stress-anxiety-depression/raising-low-self-esteem/">how to raise your self-esteem</a></li>
-				<li>use <a href="https://www.nhs.uk/conditions/stress-anxiety-depression/ways-relieve-stress/">calming breathing exercises</a></li>
-				<li><a href="https://www.nhs.uk/live-well/exercise/">exercise</a> – activities such as running, walking, swimming and yoga can help you relax and reduce stress</li>
-				<li>read <a href="https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/">how to get to sleep</a> - if you’re struggling to sleep</li>
-				<li>eat <a href="https://www.nhs.uk/live-well/eat-well/">a healthy diet</a> with regular meals to keep your energy levels stable - avoid alcohol, caffeine and smoking as theses can make anxiety and panic worse</li>
-				<li>try <a href="https://www.nhs.uk/conditions/stress-anxiety-depression/mindfulness/">mindfulness</a> (paying attention to the present moment) – studies have found mindfulness can help reduce stress and improve your mood</li>
-				<li>listen to <a href="https://www.nhs.uk/conditions/stress-anxiety-depression/moodzone-mental-wellbeing-audio-guides/">free audio guides to boost your mood</a></li>
-				<li>search and download <a href="https://www.nhs.uk/apps-library/category/mental-health/">apps and tools to boost your mental health from the NHS apps library</a></li>
-			</ul>
-		</div>
-		<div class="nhsuk-do-dont-list app-cross">
-			<h3 class="nhsuk-do-dont-list__label">Don't</h3>
-			<ul class="list--cross">
-				<li>do not try to do everything at once – set small targets that you can easily achieve</li>
-				<li>do not focus on the things you can’t change – focus your time and energy into helping yourself feel better</li>
-				<li>try not to feel like you're alone – most people feel low or anxious at some point and support is available</li>
-			</ul>
-		</div>
+		{{ list({
+			"title": "Do",
+			"type": "tick",
+			"items": [
+				{
+					"item": "try <a href='https://www.nhs.uk/conditions/stress-anxiety-depression/feel-better-and-happy/'>6 ways to feel happier</a> – including small lifestyle changes that may help you feel more in control and able to cope</li>"
+				},
+				{
+					"item": "read about <a href='https://www.nhs.uk/conditions/stress-anxiety-depression/raising-low-self-esteem/'>how to raise your self-esteem</a></li>"
+				},
+				{
+					"item": "use <a href='https://www.nhs.uk/conditions/stress-anxiety-depression/ways-relieve-stress/'>calming breathing exercises</a></li>"
+				},
+				{
+					"item": "<a href='https://www.nhs.uk/live-well/exercise/'>exercise</a> – activities such as running, walking, swimming and yoga can help you relax and reduce stress</li>"
+				},
+				{
+					"item": "read <a href='https://www.nhs.uk/live-well/sleep-and-tiredness/how-to-get-to-sleep/'>how to get to sleep</a> - if you’re struggling to sleep</li>"
+				},
+				{
+					"item": "eat <a href='https://www.nhs.uk/live-well/eat-well/'>a healthy diet</a> with regular meals to keep your energy levels stable - avoid alcohol, caffeine and smoking as theses can make anxiety and panic worse</li>"
+				},
+				{
+					"item": "try <a href='https://www.nhs.uk/conditions/stress-anxiety-depression/mindfulness/'>mindfulness</a> (paying attention to the present moment) – studies have found mindfulness can help reduce stress and improve your mood</li>"
+				},
+				{
+					"item": "listen to <a href='https://www.nhs.uk/conditions/stress-anxiety-depression/moodzone-mental-wellbeing-audio-guides/'>free audio guides to boost your mood</a></li>"
+				},
+				{
+					"item": "search and download <a href='https://www.nhs.uk/apps-library/category/mental-health/'>apps and tools to boost your mental health from the NHS apps library</a></li>"
+				}
+			]
+		}) }}
+
+		{{ list({
+			"title": "Don't",
+			"type": "cross",
+			"items": [
+				{
+					"item": "do not try to do everything at once – set small targets that you can easily achieve</li>"
+				},
+				{
+					"item": "do not focus on the things you can’t change – focus your time and energy into helping yourself feel better</li>"
+				},
+				{
+					"item": "try not to feel like you're alone – most people feel low or anxious at some point and support is available</li>"
+				}
+			]
+		}) }}
+
 		<h2>Where to get medical help for a low mood or anxiety</h2>
 		<h3>Referring yourself for therapy</h3>
 		<p>If you need more support, you can get free psychological therapies like cognitive behavioural therapy (CBT) on the NHS.</p>

@@ -29,8 +29,8 @@ if (button) {
 if (path === 'results') {
 	const depressionHeader = document.querySelector('.depression-header > span');
 	const anxietyHeader = document.querySelector('.anxiety-header > span');
-	const depressionParagraph = document.querySelector('.depression-content');
-	const anxietyParagraph = document.querySelector('.anxiety-content');
+	const depressionParagraph = document.querySelector('.depression-content .nhsuk-details__text');
+	const anxietyParagraph = document.querySelector('.anxiety-content .nhsuk-details__text');
 	const resultCareCard = document.querySelector('.js-care-card');
 
 	const depressionKeys = [1,2,3,4,5,6,7,8];
