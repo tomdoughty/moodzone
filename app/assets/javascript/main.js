@@ -137,8 +137,6 @@ if (path === 'results') {
 			${ storeObj[9] === 0 ? '<p>You also said you experience panic attacks sometimes. Read more about <a href="https://nhsuk-live-review-experimental-moodzone.nhswebsite-integration.nhs.uk/conditions/improve-your-mental-health-and-wellbeing/i-feel-anxious-and-panicky/">anxiety, fear and panic</a>.</p>' : ''}
 		</div>`
 
-		document.querySelector('.js-links').innerHTML = listContent;
-
 		if (depressionScore > 16 || anxietyScore > 14) {
 			document.querySelector('.js-links-high').innerHTML = listContent;
 		} else if (depressionScore > 8 || anxietyScore > 7) {
