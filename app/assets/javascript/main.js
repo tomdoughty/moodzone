@@ -104,20 +104,10 @@ if (path === 'results') {
 	anxietyHeader.innerHTML = `${anxietyScore} out of ${anxietyAnswers*3}`;
 	
 	if (depressionScore > 8 || anxietyScore > 7) {
-		resultCareCard.innerHTML = `<div class="nhsuk-care-card nhsuk-care-card--urgent">
-		<div class="nhsuk-care-card__heading-container">
-		  <h3 class="nhsuk-care-card__heading"><span role="text"><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Call 111 or ask for an urgent GP appointment if:</span></h3>
-		  <span class="nhsuk-care-card__arrow" aria-hidden="true"></span>
-		</div>
-		<div class="nhsuk-care-card__content">
-		  <ul>
-	  		<li>you need help urgently</li>
-	  		</ul>
-			<p>111 can tell you the right place to get help if you need to see someone. Go to <a href="111.nhs.uk">111.nhs.uk</a> or <a href="call:111">call 111</a>.</p>
-			<p>You can also call Samaritans free on <a href="call:116123">116 123</a> to talk to someone.</p> 
-		</div>
-	  </div>
-	  `;
+		document.querySelector('body').classList.add('medium');
+		if (depressionScore > 16 || anxietyScore > 14) {
+			document.querySelector('body').classList.add('high')
+		};
 	};
 
 	depressionParagraph.innerHTML = depressionContent;

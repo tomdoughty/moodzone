@@ -11,4 +11,14 @@
 
 .nhsuk-reading-width {
 	max-width: 40em;
+};
+
+.nhsuk-care-card--immediate {
+	display: none;
+}
+
+.medium, .high {
+	.nhsuk-care-card--immediate {
+		display: block;
+	}
 }
