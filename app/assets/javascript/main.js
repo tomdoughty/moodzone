@@ -103,11 +103,10 @@ if (path === 'results') {
 	depressionHeader.innerHTML = `${depressionScore} out of ${depressionAnswers*3}`;
 	anxietyHeader.innerHTML = `${anxietyScore} out of ${anxietyAnswers*3}`;
 	
-	if (depressionScore > 8 || anxietyScore > 7) {
-		document.querySelector('body').classList.add('medium');
-		if (depressionScore > 16 || anxietyScore > 14) {
-			document.querySelector('body').classList.add('high')
-		};
+	if (depressionScore > 16 || anxietyScore > 14) {
+		document.querySelector('body').classList.add('high');
+	} else if (depressionScore > 8 || anxietyScore > 7) {
+		document.querySelector('body').classList.add('medium')
 	};
 
 	depressionParagraph.innerHTML = depressionContent;
@@ -139,5 +138,11 @@ if (path === 'results') {
 		</div>`
 
 		document.querySelector('.js-links').innerHTML = listContent;
+
+		if (depressionScore > 16 || anxietyScore > 14) {
+			document.querySelector('.js-links-high').innerHTML = listContent;
+		} else if (depressionScore > 8 || anxietyScore > 7) {
+			document.querySelector('.js-links').innerHTML = listContent;
+		};
 	}
 }
